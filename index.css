@@ -1,11 +1,123 @@
 body, html {
     height: 100%;
     margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('images/echidna.PNG'); /* Path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Ensures background stays fixed on scroll */
+    background-color: #1e3c72; /* Fallback background color */
+}
+
+header {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for readability */
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Enhanced text shadow for contrast */
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    background-image: url('images/echidna.PNG'); /* Cambiar a la ruta de tu imagen */
-    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* No repita la imagen */
+    justify-content: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.3); /* Subtle overlay for content readability */
+    border-radius: 10px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #e94560;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.button:hover {
+    background-color: #d32f4a;
+    transform: scale(1.05);
+}
+
+.button:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+.audio-controls {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+#audio-toggle {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #0f7173;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#audio-toggle:hover {
+    background-color: #0a5a5c;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Matching overlay for footer */
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .button {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+
+    .container {
+        max-width: 95%;
+        padding: 0.5rem;
+    }
+
+    body, html {
+        background-attachment: scroll; /* Prevent fixed background on small screens */
+    }
+}
+
+@media (max-width: 400px) {
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
 }
