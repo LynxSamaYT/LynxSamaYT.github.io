@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
     color: #e0e0e0;
     display: flex;
     flex-direction: column;
@@ -13,51 +13,55 @@ body {
 
 .container {
     text-align: center;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(26, 26, 46, 0.9);
     padding: 2rem;
     border-radius: 15px;
-    backdrop-filter: blur(10px);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
 }
 
-h1 {
+.main-title {
     font-size: 3em;
     margin-bottom: 1.5rem;
-    color: #ffffff;
-    text-shadow: 0 0 10px #00ffcc;
+    color: #00d4ff;
+    text-shadow: 0 0 10px #00d4ff;
 }
 
-.audio-player {
+.profile-container {
     margin-bottom: 1.5rem;
 }
 
-audio {
-    width: 100%;
-    max-width: 300px;
-    background: #333;
-    border-radius: 10px;
-    padding: 5px;
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #00d4ff;
+    transition: transform 0.3s;
 }
 
-.buttons {
+.profile-img:hover {
+    transform: scale(1.1);
+}
+
+.buttons-container {
     display: flex;
     gap: 1rem;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
-.btn {
-    background-color: #00ffcc;
-    color: #1e1e2f;
-    border: none;
+.button {
+    background-color: #00d4ff;
+    color: #1a1a2e;
     padding: 12px 25px;
-    cursor: pointer;
+    text-decoration: none;
     font-size: 1.1em;
     border-radius: 25px;
-    transition: transform 0.2s, background-color 0.2s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.btn:hover {
-    background-color: #00b894;
+.button:hover {
+    background-color: #00aaff;
     transform: scale(1.05);
 }
 
@@ -66,4 +70,22 @@ footer {
     bottom: 10px;
     font-size: 0.9em;
     color: #b0b0b0;
+}
+
+#playAudio {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #00d4ff;
+    border: none;
+    padding: 10px 20px;
+    color: #1a1a2e;
+    font-size: 1em;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+#playAudio:hover {
+    background-color: #00aaff;
 }
