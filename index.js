@@ -10,13 +10,21 @@ document.addEventListener('DOMContentLoaded', () => {
         container.style.opacity = '1';
     }, 100);
 
-    // Auto-play audio with fallback
-    audio.play().catch(err => {
-        console.error('Autoplay failed:', err);
-        audioToggle.disabled = false;
-        audioToggle.textContent = 'Play Audio';
-        audioToggle.setAttribute('aria-label', 'Play audio playback');
-    });
+    // Attempt to autoplay audio
+    function tryPlayAudio() {
+        audio.play().then(() => {
+            audioToggle.textContent = 'Pause Audio';
+            audioToggle.setAttribute('aria-label', 'Pause audio playback');
+        }).catch(err => {
+            console.error('Autoplay failed:', err);
+            audioToggle.disabled = false;
+            audioToggle.textContent = 'Play Audio (Click to Start)';
+            audioToggle.setAttribute('aria-label', 'Play audio playback manually');
+        });
+    }
+
+    // Initial autoplay attempt
+    tryPlayAudio();
 
     // Audio toggle functionality
     audioToggle.addEventListener('click', () => {
@@ -39,9 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Audio error handling
     audio.addEventListener('error', () => {
-        console.error('Error loading audio file.');
+        console.error('Error loading audio file. Details:', audio.error);
         audioToggle.textContent = 'Audio Unavailable';
         audioToggle.disabled = true;
-        alert('Failed to load audio. Please verify the file path: audio/MONTAGEM BAILÃO.mp3');
+        alert('Failed to load audio. Please verify the file path: audio/MONTAGEM BAILÃO.mp3. Error: ' + audio.error.code);
     });
+
+    // Retry autoplay on user interaction (e.g., button click)
+    document.addEventListener('click', tryPlayAudio, { once: true });
 });
