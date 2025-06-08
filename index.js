@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('background-audio');
     const audioToggle = document.getElementById('audio-toggle');
-    const infoButton = document.getElementById('info-button');
     const container = document.getElementById('main-container');
 
     // Fade-in animation for container
@@ -11,7 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
         container.style.opacity = '1';
     }, 100);
 
-    // Audio initialization
+    // Auto-play audio with fallback
+    audio.play().catch(err => {
+        console.error('Autoplay failed:', err);
+        audioToggle.disabled = false;
+        audioToggle.textContent = 'Play Audio';
+        audioToggle.setAttribute('aria-label', 'Play audio playback');
+    });
+
+    // Audio toggle functionality
     audioToggle.addEventListener('click', () => {
         if (audio.paused) {
             audio.play().then(() => {
@@ -36,18 +43,5 @@ document.addEventListener('DOMContentLoaded', () => {
         audioToggle.textContent = 'Audio Unavailable';
         audioToggle.disabled = true;
         alert('Failed to load audio. Please verify the file path: audio/MONTAGEM BAILÃO.mp3');
-    });
-
-    // Info button action
-    infoButton.addEventListener('click', () => {
-        alert('Welcome to The Kernel Community! Join our Discord or visit our Roblox link to get started.');
-    });
-
-    // Keyboard accessibility for info button
-    infoButton.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            infoButton.click();
-        }
     });
 });
