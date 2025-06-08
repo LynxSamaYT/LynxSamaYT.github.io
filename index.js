@@ -11,38 +11,31 @@ document.addEventListener('DOMContentLoaded', () => {
         container.style.opacity = '1';
     }, 100);
 
-    // Audio setup and error handling
-    audio.addEventListener('canplay', () => {
-        audioToggle.disabled = false;
-        audioToggle.textContent = 'Pause Audio';
-        audio.play().catch(err => {
-            console.error('Audio playback failed:', err);
-            audioToggle.textContent = 'Audio Unavailable';
-            audioToggle.disabled = true;
-        });
-    });
-
-    audio.addEventListener('error', () => {
-        console.error('Error loading audio file.');
-        audioToggle.textContent = 'Audio Unavailable';
-        audioToggle.disabled = true;
-        alert('Failed to load audio. Please check the file path or try again later.');
-    });
-
-    // Toggle audio playback
+    // Audio initialization
     audioToggle.addEventListener('click', () => {
         if (audio.paused) {
-            audio.play().catch(err => {
+            audio.play().then(() => {
+                audioToggle.textContent = 'Pause Audio';
+                audioToggle.setAttribute('aria-label', 'Pause audio playback');
+            }).catch(err => {
                 console.error('Audio playback failed:', err);
-                alert('Unable to play audio. Please try again.');
+                alert('Unable to play audio. Check the file path or browser settings.');
+                audioToggle.textContent = 'Audio Unavailable';
+                audioToggle.disabled = true;
             });
-            audioToggle.textContent = 'Pause Audio';
-            audioToggle.setAttribute('aria-label', 'Pause audio playback');
         } else {
             audio.pause();
             audioToggle.textContent = 'Play Audio';
             audioToggle.setAttribute('aria-label', 'Play audio playback');
         }
+    });
+
+    // Audio error handling
+    audio.addEventListener('error', () => {
+        console.error('Error loading audio file.');
+        audioToggle.textContent = 'Audio Unavailable';
+        audioToggle.disabled = true;
+        alert('Failed to load audio. Please verify the file path: audio/MONTAGEM BAILÃO.mp3');
     });
 
     // Info button action
