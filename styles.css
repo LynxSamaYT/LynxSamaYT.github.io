@@ -1,49 +1,69 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: url('echidna.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+    color: #e0e0e0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    overflow: hidden;
 }
 
 .container {
     text-align: center;
-}
-
-.profile-img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 3em;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    text-shadow: 0 0 10px #00ffcc;
+}
+
+.audio-player {
+    margin-bottom: 1.5rem;
+}
+
+audio {
+    width: 100%;
+    max-width: 300px;
+    background: #333;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
 }
 
 .btn {
-    background-color: #800080;
-    color: white;
+    background-color: #00ffcc;
+    color: #1e1e2f;
     border: none;
-    padding: 10px 20px;
-    margin: 5px;
+    padding: 12px 25px;
     cursor: pointer;
-    font-size: 1em;
-    border-radius: 5px;
+    font-size: 1.1em;
+    border-radius: 25px;
+    transition: transform 0.2s, background-color 0.2s;
 }
 
 .btn:hover {
-    background-color: #660066;
+    background-color: #00b894;
+    transform: scale(1.05);
 }
 
 footer {
     position: fixed;
     bottom: 10px;
-    font-size: 0.8em;
+    font-size: 0.9em;
+    color: #b0b0b0;
 }
