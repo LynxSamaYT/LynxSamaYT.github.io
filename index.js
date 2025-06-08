@@ -10,22 +10,27 @@ document.addEventListener('DOMContentLoaded', () => {
         container.style.opacity = '1';
     }, 100);
 
-    // Attempt to play audio when ready
+    // Force audio reload and attempt playback when ready
+    audio.load();
     audio.addEventListener('canplaythrough', () => {
-        audio.muted = false; // Un-mute after loading
-        audio.play().catch(err => {
-            console.error('Autoplay failed after loading:', err);
-            audioMessage.textContent = 'Audio failed to play. Check console for details.';
+        audio.muted = false; // Ensure un-muted
+        audio.play().then(() => {
+            audioMessage.textContent = 'Audio playing...';
+        }).catch(err => {
+            console.error('Playback failed after loading:', err);
+            audioMessage.textContent = 'Audio failed to play. Check console.';
         });
     });
 
-    // Fallback: Un-mute and play on first user interaction
+    // Fallback: Play on first user interaction
     document.addEventListener('click', () => {
-        if (audio.muted) {
+        if (audio.paused || audio.muted) {
             audio.muted = false;
-            audio.play().catch(err => {
-                console.error('Playback failed on interaction:', err);
-                audioMessage.textContent = 'Audio unavailable. Check file path or browser.';
+            audio.play().then(() => {
+                audioMessage.textContent = 'Audio playing...';
+            }).catch(err => {
+                console.error('Manual playback failed:', err);
+                audioMessage.textContent = 'Audio unavailable. Check console.';
             });
         }
     }, { once: true });
@@ -33,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Audio error handling
     audio.addEventListener('error', () => {
         console.error('Error loading audio file. Details:', audio.error);
-        audioMessage.textContent = 'Audio unavailable. Error: ' + audio.error.code;
-        alert('Failed to load audio. Verify path: audio/MONTAGEM BAILÃO.mp3. Error code: ' + audio.error.code);
+        audioMessage.textContent = 'Audio failed to load. Error: ' + audio.error.code;
+        alert('Audio error. Verify path: audio/bailo.mp3. Code: ' + audio.error.code);
     });
 });
