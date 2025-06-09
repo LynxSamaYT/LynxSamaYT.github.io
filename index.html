@@ -17,10 +17,6 @@
   <div class="container">
     <h1 class="main-title">The Kernel Community</h1>
 
-    <div class="profile-container">
-        <!-- Profile image removed, background set in body -->
-    </div>
-
     <div class="buttons-container">
       <a href="https://discord.gg/vwJcBbXqxz" class="button" target="_blank">Discord</a>
       <a href="https://roblox.ls/dashboard/" class="button" target="_blank">Link</a>
@@ -34,7 +30,11 @@
   <script>
       document.getElementById('playAudio').addEventListener('click', function () {
           const audio = document.getElementById('backgroundMusic');
-          audio.play();
+          if (audio.paused) {
+              audio.play().catch(error => {
+                  console.log("Error playing audio: ", error);
+              });
+          }
           this.style.opacity = '0';
           setTimeout(() => {
               this.style.display = 'none';
