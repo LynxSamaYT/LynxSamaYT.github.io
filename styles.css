@@ -1,7 +1,8 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #0f172a, #1e293b);
+    background: url('https://i.imgur.com/YourImageUrlHere.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: #f1f5f9;
     display: flex;
     flex-direction: column;
@@ -19,7 +20,7 @@ body {
 
 .container {
     text-align: center;
-    background: rgba(15, 23, 42, 0.9);
+    background: rgba(15, 23, 42, 0.7);
     padding: 2.5rem;
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
@@ -37,19 +38,7 @@ body {
 
 .profile-container {
     margin-bottom: 2rem;
-}
-
-.profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 5px solid #34d399;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.profile-img:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 20px #34d399;
+    /* Logo removed, background set in body */
 }
 
 .buttons-container {
