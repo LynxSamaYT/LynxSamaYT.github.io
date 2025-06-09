@@ -1,8 +1,6 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: url('https://i.imgur.com/YourImageUrlHere.jpg') no-repeat center center fixed;
-    background-size: cover;
     color: #f1f5f9;
     display: flex;
     flex-direction: column;
@@ -38,7 +36,7 @@ body {
 
 .profile-container {
     margin-bottom: 2rem;
-    /* Logo removed, background set in body */
+    /* Profile image removed, background set in body */
 }
 
 .buttons-container {
