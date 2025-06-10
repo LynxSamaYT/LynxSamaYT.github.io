@@ -1,91 +1,71 @@
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    color: #f1f5f9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
-    animation: fadeIn 1s ease-in;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #f1f5f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    animation: fadeIn 1s ease-in;
+    background: url('echidna.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .container {
-    text-align: center;
-    background: rgba(0, 0, 0, 0.7); /* Fondo un poco más oscuro */
-    padding: 50px; /* Aumenté el padding para más espacio alrededor */
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    max-width: 800px;
+    width: 90%;
 }
 
 .main-title {
-    margin-bottom: 40px; /* Más espacio debajo del título */
-    font-size: 3.5rem; /* Título un poco más grande */
-    font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .buttons-container {
-    display: flex;
-    gap: 30px; /* Más espacio entre los botones */
-    justify-content: center;
-    margin-top: 30px; /* Espacio adicional sobre los botones */
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
 .button {
-    display: inline-block;
-    padding: 18px 40px; /* Botones más grandes */
-    background-color: #5865f2; /* Color morado de Discord, más vibrante */
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 600; /* Texto más grueso */
-    font-size: 1.1rem; /* Texto un poco más grande */
-    border-radius: 10px; /* Bordes más redondeados */
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Añadí transición para la sombra */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra inicial */
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #4c6ef5;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
 }
 
 .button:hover {
-    background-color: #4351eb; /* Ligeramente más oscuro al pasar el ratón */
-    transform: translateY(-3px); /* Ligero movimiento hacia arriba */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Sombra más grande al pasar el ratón */
+    background-color: #3b5bdb;
 }
 
-.button:active {
-    transform: translateY(0); /* Volver a la posición original al hacer clic */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra más pequeña al hacer clic */
+.play-prompt {
+    font-size: 1.5rem;
+    margin: 2rem 0;
+    cursor: pointer;
 }
 
 footer {
-    position: absolute;
-    bottom: 30px; /* Más espacio desde la parte inferior */
-    font-size: 0.95em;
-    color: rgba(255, 255, 255, 0.8);
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Ligera sombra en el texto del footer */
-}
-
-/* ESTILOS PARA EL PROMPT DE INICIO */
-.play-prompt {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Fondo un poco menos opaco */
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.5rem; /* Texto del prompt más grande */
-    font-weight: bold; /* Texto del prompt en negrita */
-    cursor: pointer;
-    z-index: 1000;
-    transition: opacity 0.3s ease; /* Transición más suave al desaparecer */
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra para el texto del prompt */
+    position: fixed;
+    bottom: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
 }
