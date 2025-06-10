@@ -1,57 +1,69 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta name="description" content="Bienvenido a The Kernel Community - Tu centro para la interacción y diversión.">
-
-  <meta name="keywords" content="Kernel Community, Discord, Roblox, comunidad, social">
-
-  <meta name="author" content="The Kernel Community">
-
-  <title>The Kernel Community</title>
-
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
-
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-
-  <link rel="stylesheet" href="styles.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bienvenido a The Kernel Community - Tu centro para la interacción y diversión.">
+  <meta name="keywords" content="Kernel Community, Discord, Roblox, comunidad, social">
+  <meta name="author" content="The Kernel Community">
+  <title>The Kernel Community</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body style="background: url('echidna.jpg') no-repeat center center fixed; background-size: cover;" aria-live="polite">
+  <main class="container">
+    <h1 class="main-title">The Kernel Community</h1>
+    
+    <section class="buttons-container" aria-label="Enlaces de la comunidad">
+      <a href="https://discord.gg/vwJcBbXqxz" class="button" target="_blank" rel="noopener noreferrer">Discord</a>
+      <a href="https://roblox.ls/dashboard/" class="button" target="_blank" rel="noopener noreferrer">Roblox Link</a>
+    </section>
 
-  <main class="container">
+    <div id="playPrompt" class="play-prompt">Haz clic para iniciar</div>
+    
+    <!-- Audio con el archivo correcto MONTAGEM BAILÃO.mp3 -->
+    <audio id="musicaDeFondo" src="MONTAGEM BAILÃO.mp3" loop></audio>
+  </main>
 
-    <h1 class="main-title">The Kernel Community</h1>
-
-    <section class="buttons-container" aria-label="Enlaces de la comunidad">
-
-      <a href="https://discord.gg/vwJcBbXqxz" class="button" target="_blank" rel="noopener noreferrer">Discord</a>
-
-      <a href="https://roblox.ls/dashboard/" class="button" target="_blank" rel="noopener noreferrer">Roblox Link</a>
-
-    </section>
-
-    <div id="playPrompt" class="play-prompt">Haz clic para iniciar</div>
-
-    <audio id="musicaDeFondo" src="MONTAGEM BAILÃO.mp3" loop></audio>
-
-  </main>
-
-  <footer>
-
-    <p>© 2025 The Kernel Community</p>
-
-  </footer>
-
+  <footer>
+    <p>© 2025 The Kernel Community</p>
+  </footer>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('musicaDeFondo');
+      const playPrompt = document.getElementById('playPrompt');
+      
+      // Función para iniciar la reproducción
+      const iniciarReproduccion = () => {
+        if (audio.paused) {
+          audio.play()
+            .then(() => {
+              playPrompt.style.display = 'none';
+              // Guardar estado en localStorage
+              localStorage.setItem('audioReproducido', 'true');
+            })
+            .catch(e => console.error('Error al reproducir:', e));
+        }
+      };
+      
+      // Verificar si ya se reprodujo antes
+      if (localStorage.getItem('audioReproducido') === 'true') {
+        playPrompt.style.display = 'none';
+        // Esperar a la interacción del usuario para reproducir automáticamente
+        document.body.addEventListener('click', iniciarReproduccion, { once: true });
+      } else {
+        // Reproducir al hacer clic en cualquier parte
+        document.body.addEventListener('click', iniciarReproduccion, { once: true });
+      }
+      
+      // Ocultar prompt al presionar teclas
+      document.addEventListener('keydown', () => {
+        playPrompt.style.display = 'none';
+      });
+    });
+  </script>
 </body>
-
 </html>
