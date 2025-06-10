@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body style="background: url('echidna.jpg') no-repeat center center fixed; background-size: cover;" aria-live="polite">
+
+  <div id="playPrompt" class="play-prompt">Haz clic para iniciar</div>
+
   <main class="container">
     <h1 class="main-title">The Kernel Community</h1>
 
@@ -24,14 +27,31 @@
       <a href="https://discord.gg/vwJcBbXqxz" class="button" target="_blank" rel="noopener noreferrer">Discord</a>
       <a href="https://roblox.ls/dashboard/" class="button" target="_blank" rel="noopener noreferrer">Roblox Link</a>
     </section>
-
-    <div id="playPrompt" class="play-prompt">Haz clic para iniciar</div>
-
-    <audio id="musicaDeFondo" src="MONTAGEM BAILÃO.mp3" autoplay aria-label="Música de fondo"></audio>
   </main>
+
+  <audio id="musicaDeFondo" src="./sonidos/musicafondo2.mp3" loop aria-label="Música de fondo"></audio>
 
   <footer>
     <p>© 2025 The Kernel Community</p>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const playPrompt = document.getElementById('playPrompt');
+      const musicaDeFondo = document.getElementById('musicaDeFondo');
+
+      playPrompt.addEventListener('click', () => {
+        // Intenta reproducir la música
+        musicaDeFondo.play().then(() => {
+          // Si la reproducción es exitosa, oculta el prompt
+          playPrompt.style.display = 'none';
+        }).catch(error => {
+          console.error("La reproducción automática fue bloqueada:", error);
+          // El prompt permanece visible para que el usuario pueda volver a intentarlo.
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
