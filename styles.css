@@ -75,22 +75,10 @@ footer {
 }
 
 .play-prompt {
-    background: linear-gradient(45deg, #34d399, #059669);
-    color: #0f172a;
-    padding: 10px 20px;
-    font-size: 1.1em;
-    border-radius: 20px;
+    color: #ffffff;
+    font-size: 2em;
+    font-weight: 400;
+    text-align: center;
     margin-top: 1.5rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(52, 211, 153, 0.4);
-    text-align: center;
-    display: inline-block;
-}
-
-.play-prompt:hover {
-    background: linear-gradient(45deg, #059669, #34d399);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(52, 211, 153, 0.6);
-    color: #ffffff;
 }
