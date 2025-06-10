@@ -82,3 +82,8 @@ footer {
     margin-top: 1.5rem;
     cursor: pointer;
 }
+
+.play-prompt:focus {
+    outline: none;
+    color: #d1d5db;
+}
