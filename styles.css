@@ -20,7 +20,7 @@ body {
 
 .container {
     text-align: center;
-    background: rgba(0, 0, 0, 0.65); /* Fondo oscuro translúcido */
+    background: rgba(0, 0, 0, 0.65);
     padding: 2rem 2.5rem;
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.37);
@@ -56,20 +56,3 @@ body {
     background: #404eed;
 }
 
-.play-prompt {
-    font-size: 2rem;
-    font-weight: 500;
-    margin-top: 2.5rem;
-    background: rgba(0,0,0,0.7);
-    padding: 1rem 2rem;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.24);
-    transition: background 0.2s, color 0.2s;
-    outline: none;
-}
-
-.play-prompt:focus, .play-prompt:hover {
-    background: #5865f2;
-    color: #fff;
-}
