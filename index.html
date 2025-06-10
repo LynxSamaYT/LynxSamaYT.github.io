@@ -1,57 +1,57 @@
 <!DOCTYPE html>
+
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Bienvenido a The Kernel Community - Tu centro para la interacción y diversión.">
-  <meta name="keywords" content="Kernel Community, Discord, Roblox, comunidad">
-  <meta name="author" content="The Kernel Community">
 
-  <title>The Kernel Community</title>
+  <meta charset="UTF-8">
 
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <meta name="description" content="Bienvenido a The Kernel Community - Tu centro para la interacción y diversión.">
 
-  <link rel="stylesheet" href="styles.css">
+  <meta name="keywords" content="Kernel Community, Discord, Roblox, comunidad, social">
+
+  <meta name="author" content="The Kernel Community">
+
+  <title>The Kernel Community</title>
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+
 </head>
+
 <body style="background: url('echidna.jpg') no-repeat center center fixed; background-size: cover;" aria-live="polite">
 
-  <div id="playPrompt" class="play-prompt">Haz clic para iniciar</div>
+  <main class="container">
 
-  <main class="container">
-    <h1 class="main-title">The Kernel Community</h1>
+    <h1 class="main-title">The Kernel Community</h1>
 
-    <section class="buttons-container" aria-label="Enlaces de la comunidad">
-      <a href="https://discord.gg/vwJcBbXqxz" class="button" target="_blank" rel="noopener noreferrer">Discord</a>
-      <a href="https://roblox.ls/dashboard/" class="button" target="_blank" rel="noopener noreferrer">Roblox Link</a>
-    </section>
-  </main>
+    <section class="buttons-container" aria-label="Enlaces de la comunidad">
 
-  <audio id="musicaDeFondo" src="MONTAGEM BAILÃO.mp3" loop aria-label="Música de fondo"></audio>
+      <a href="https://discord.gg/vwJcBbXqxz" class="button" target="_blank" rel="noopener noreferrer">Discord</a>
 
-  <footer>
-    <p>© 2025 The Kernel Community</p>
-  </footer>
+      <a href="https://roblox.ls/dashboard/" class="button" target="_blank" rel="noopener noreferrer">Roblox Link</a>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const playPrompt = document.getElementById('playPrompt');
-      const musicaDeFondo = document.getElementById('musicaDeFondo');
+    </section>
 
-      playPrompt.addEventListener('click', () => {
-        // Intenta reproducir la música
-        musicaDeFondo.play().then(() => {
-          // Si la reproducción es exitosa, oculta el prompt
-          playPrompt.style.display = 'none';
-        }).catch(error => {
-          console.error("La reproducción automática fue bloqueada:", error);
-          // El prompt permanece visible para que el usuario pueda volver a intentarlo.
-        });
-      });
-    });
-  </script>
+    <div id="playPrompt" class="play-prompt">Haz clic para iniciar</div>
+
+    <audio id="musicaDeFondo" src="MONTAGEM BAILÃO.mp3" loop></audio>
+
+  </main>
+
+  <footer>
+
+    <p>© 2025 The Kernel Community</p>
+
+  </footer>
 
 </body>
+
 </html>
